@@ -45,7 +45,7 @@ function getPointGen() {
 
 	let gain = new Decimal(1)	
 	gain=gain.add(tmp.H.produce.eff)
-	gain=gain.add(tmp.li.produce.eff)
+	gain=gain.add(tmp.he.produce.eff)
 	return gain
 }
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values

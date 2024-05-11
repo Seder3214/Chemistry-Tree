@@ -50,11 +50,11 @@ addLayer("pt", {
         },
         },
         12: {
-            title:`<br>Li`,
+            title:`<br>He`,
             tooltip() {return this.canClick()?``:"To unlock, explore 2 elements"},
             canClick() {return player.pt.points.gte(2)},
             onClick() {
-                player.tab="li"
+                player.tab="he"
             },
             style() {
                 if (player.pt.points.gte(2))return {
@@ -73,7 +73,7 @@ addLayer("pt", {
             },
             },
         13: {
-            title:`<br>Be`,
+            title:`<br>Li`,
             tooltip() {return this.canClick()?``:"To unlock, explore 3 elements"},
             canClick() {return player.pt.points.gte(3)},
             onClick() {
@@ -128,7 +128,7 @@ effectDescription() {return `<div style="border:2px solid white;width:200px">Pro
         if (hasUpgrade("H", 11)) base = base.times(1.7);
 if (hasUpgrade("H", 12)) base = base.times(1.85);
 if (hasUpgrade("H", 21)) base = base.times(1.6);	
-if (hasUpgrade("li", 11)) base = base.times(1.7);
+if (hasUpgrade("he", 11)) base = base.times(1.7);
     x=base.mul(player.H.points)
         return {eff:x,base:base}
     },
@@ -166,20 +166,20 @@ unlocked() { return (hasUpgrade("H", 21))}, // The upgrade is only visible when 
 	},
 	layerShown(){return false}
 }),
-addLayer("li", {
-    name: "Lithium", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "Li²", // This appears on the layer's node. Default is the id with the first letter capitalized
+addLayer("he", {
+    name: "Helium", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "he", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    effectDescription() {return `<div style="border:2px solid white;width:200px">Produces: ${format(tmp.li.produce.base,3)} points/s per Lithium<br><span style="color:yellow">x${format(player.li.points,0)}</span> produces ${format(tmp.li.produce.eff,2)}</span> points/s</div>`},
+    effectDescription() {return `<div style="border:2px solid white;width:200px">Produces: ${format(tmp.he.produce.base,3)} points/s per Helium<br><span style="color:yellow">x${format(player.he.points,0)}</span> produces ${format(tmp.he.produce.eff,2)}</span> points/s</div>`},
     produce() {
         let x = new Decimal(0)
         let base=new Decimal(43)
-        if (hasUpgrade("li", 12)) base = base.times(1.3);
-    x=base.mul(player.li.points)
+        if (hasUpgrade("he", 12)) base = base.times(1.3);
+    x=base.mul(player.he.points)
         return {eff:x,base:base}
     },
     layerShown(){return false},
@@ -201,7 +201,7 @@ addLayer("li", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "l", description: "L: Reset for Lithium", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "e", description: "E: Reset for Helium", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
 	upgrades : {
 		rows: 2,
