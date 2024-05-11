@@ -3,7 +3,7 @@ var particleID = 0;
 var mouseX = 0;
 var mouseY = 0;
 
-function makeParticles(data, amount=1, type = "normal") {
+function makeParticles(data, amount=1, type = "normal",colorType="") {
     for (let x = 0; x < amount; x++) {
         let particle = newParticles[type]()
         for (thing in data) {
@@ -20,6 +20,7 @@ function makeParticles(data, amount=1, type = "normal") {
                     
             }
         }
+        particle.color=colorType
         if (data.dir === undefined) {
             particle.dir = particle.angle
         }

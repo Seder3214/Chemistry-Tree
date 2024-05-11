@@ -14,8 +14,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1b",
-	name: "The Chemistry LabBeta",
+	num: "0.11b",
+	name: "The Chemistry Lab Revamp",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -43,10 +43,9 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(1)
-if (hasUpgrade("H", 11)) gain = gain.times(1.7);
-if (hasUpgrade("H", 12)) gain = gain.times(1.85);
-if (hasUpgrade("H", 21)) gain = gain.times(1.6);		
+	let gain = new Decimal(1)	
+	gain=gain.add(tmp.H.produce.eff)
+	gain=gain.add(tmp.li.produce.eff)
 	return gain
 }
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
