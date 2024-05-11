@@ -28,6 +28,7 @@ addLayer("pt", {
     clickables: {
         11: {
         title:`<br>H`,
+        elid:`1`,
         tooltip() {return this.canClick()?``:"To unlock, explore 1 element"},
         canClick() {return player.pt.points.gte(1)},
         onClick() {
@@ -51,6 +52,7 @@ addLayer("pt", {
         },
         12: {
             title:`<br>He`,
+            elid:`2`,
             tooltip() {return this.canClick()?``:"To unlock, explore 2 elements"},
             canClick() {return player.pt.points.gte(2)},
             onClick() {
@@ -74,6 +76,7 @@ addLayer("pt", {
             },
         13: {
             title:`<br>Li`,
+            elid:`3`,
             tooltip() {return this.canClick()?``:"To unlock, explore 3 elements"},
             canClick() {return player.pt.points.gte(3)},
             onClick() {
@@ -100,7 +103,7 @@ addLayer("pt", {
 }),
 addLayer("H", {
     name: "Hydrogen", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "H¹", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "H", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
@@ -168,7 +171,7 @@ unlocked() { return (hasUpgrade("H", 21))}, // The upgrade is only visible when 
 }),
 addLayer("he", {
     name: "Helium", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "he", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "He", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
@@ -186,7 +189,7 @@ addLayer("he", {
     canBuyMax() {return true},
     color: "#04G0B2",
     requires: new Decimal(546.73), // Can be a function that takes requirement increases into account
-    resource: "Lithium",
+    resource: "Helium",
     branches: ["H"],	// Name of prestige currency
     baseResource: "Hydrogen", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
@@ -207,14 +210,14 @@ addLayer("he", {
 		rows: 2,
 		cols: 2,
 		11: {
-title: "Second Electron Shell",
+title: "Fulled First Electron Shell",
 description: "70% Hydrogen effective",
 cost: new Decimal(4),
 unlocked() { return true}, // The upgrade is only visible when this is true     
         },
 		12: {
 title: "Second Element!",
-description: "30% Lithium effective",
+description: "30% Helium effective",
 cost: new Decimal(12),
 unlocked() { return true}, // The upgrade is only visible when this is true     
         },

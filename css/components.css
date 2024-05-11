@@ -26,6 +26,16 @@
     opacity: 1;
     z-index: 0;
 }
+.upgrNum {
+	position: absolute;
+    left: 1px;
+    top: 2px;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    opacity: 0.35;
+    z-index: 0;
+}
 .achievement {
 	height: 90px;
 	width: 90px;
