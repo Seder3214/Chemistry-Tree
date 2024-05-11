@@ -193,7 +193,7 @@ addLayer("he", {
     requires: new Decimal(546.73), // Can be a function that takes requirement increases into account
     resource: "Helium",
     branches: ["H"],	// Name of prestige currency
-    baseResource: "Hydrogen", // Name of resource prestige is based on
+    baseResource: " Atoms", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.785, // Prestige currency exponent
