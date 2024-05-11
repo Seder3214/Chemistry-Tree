@@ -7,7 +7,8 @@ addLayer("pt", {
 		points: new Decimal(0),
     }},
     color: "#02C0F2",
-    requires: new Decimal(5), // Can be a function that takes requirement increases into account
+    requires() {if (player.pt.points.gte(2)) return new Decimal(100)
+        else return new Decimal(5)}, // Can be a function that takes requirement increases into account
     resource: " Explored Elements", // Name of prestige currency
     baseResource: "Atoms", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
