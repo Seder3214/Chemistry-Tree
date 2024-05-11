@@ -131,6 +131,7 @@ effectDescription() {return `<div style="border:2px solid white;width:200px">Pro
         if (hasUpgrade("H", 11)) base = base.times(1.7);
 if (hasUpgrade("H", 12)) base = base.times(1.85);
 if (hasUpgrade("H", 21)) base = base.times(1.6);	
+if (hasUpgrade("H", 22)) base = base.times(1.5);	
 if (hasUpgrade("he", 11)) base = base.times(1.7);
     x=base.mul(player.H.points)
         return {eff:x,base:base}
@@ -161,8 +162,8 @@ cost: new Decimal(10),
 unlocked() { return (hasUpgrade("H", 12))}, // The upgrade is only visible when this is true
 	},
 	22: {
-title: "New Element",
-description: "Opens Lithium²",
+title: "New Element awaits?",
+description: "50% Hydrogen effective",
 cost: new Decimal(20),
 unlocked() { return (hasUpgrade("H", 21))}, // The upgrade is only visible when this is true
 	},
@@ -182,6 +183,7 @@ addLayer("he", {
         let x = new Decimal(0)
         let base=new Decimal(43)
         if (hasUpgrade("he", 12)) base = base.times(1.3);
+        if (hasUpgrade("he", 13)) base = base.times(2.5);
     x=base.mul(player.he.points)
         return {eff:x,base:base}
     },
@@ -207,8 +209,6 @@ addLayer("he", {
         {key: "e", description: "E: Reset for Helium", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
 	upgrades : {
-		rows: 2,
-		cols: 2,
 		11: {
 title: "Fulled First Electron Shell",
 description: "70% Hydrogen effective",
@@ -218,8 +218,14 @@ unlocked() { return true}, // The upgrade is only visible when this is true
 		12: {
 title: "Second Element!",
 description: "30% Helium effective",
-cost: new Decimal(12),
+cost: new Decimal(7),
 unlocked() { return true}, // The upgrade is only visible when this is true     
         },
+	13: {
+         title: "Gaseous Element",
+        description: "150% Helium effective",
+        cost: new Decimal(12),
+        unlocked() { return true}, // The upgrade is only visible when this is true     
+    },
 	},
 })
